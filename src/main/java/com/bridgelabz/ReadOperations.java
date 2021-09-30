@@ -22,7 +22,7 @@ public class ReadOperations {
      * @param filePathRead : to read the file path
      * @param fileNameUser : to read the file name
      */
-    public int readDataCount(String filePathRead, String fileNameUser) throws CensusAnalyserException {
+    public int readDataCount(String filePathRead, String fileNameUser) throws StateSensorAnalyserException {
         AtomicBoolean firstLine = new AtomicBoolean(true);
         AtomicInteger count = new AtomicInteger();
 
@@ -36,11 +36,11 @@ public class ReadOperations {
             }
 
             if (!fileNameWithoutExtension.equals(fileNameUser)) {
-                throw new CensusAnalyserException("Please enter a proper file name!", CensusAnalyserException.Message.IMPROPER_FILE_NAME);
+                throw new StateSensorAnalyserException("Please enter a proper file name!", StateSensorAnalyserException.Message.IMPROPER_FILE_NAME);
             }
 
             if (!fileName.contains(".csv"))
-                throw new CensusAnalyserException("Please enter a proper file type!", CensusAnalyserException.Message.IMPROPER_FILE_TYPE);
+                throw new StateSensorAnalyserException("Please enter a proper file type!", StateSensorAnalyserException.Message.IMPROPER_FILE_TYPE);
 
             Files.lines(Paths.get(filePathRead)).forEach(lines -> {
                 if (lines.startsWith("State"))
@@ -75,7 +75,7 @@ public class ReadOperations {
                 flag = true;
             else {
                 flag = false;
-                throw new CensusAnalyserException("Please enter a correct delimiter!", CensusAnalyserException.Message.IMPROPER_DELIMITER);
+                throw new StateSensorAnalyserException("Please enter a correct delimiter!", StateSensorAnalyserException.Message.IMPROPER_DELIMITER);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -90,7 +90,7 @@ public class ReadOperations {
      * @param filePath : to read the file path
      * @param stringName : to read the header of the resource file
      */
-    public boolean readHeader(String filePath, List<String> stringName) throws IOException, CensusAnalyserException {
+    public boolean readHeader(String filePath, List<String> stringName) throws IOException, StateSensorAnalyserException {
         BufferedReader br = new BufferedReader(new FileReader(filePath));
 
         //Reading header
@@ -102,7 +102,7 @@ public class ReadOperations {
                 flag = true;
             else {
                 flag = false;
-                throw new CensusAnalyserException("Please enter the correct header!", CensusAnalyserException.Message.IMPROPER_HEADER);
+                throw new StateSensorAnalyserException("Please enter the correct header!", StateSensorAnalyserException.Message.IMPROPER_HEADER);
             }
         }
         return flag;

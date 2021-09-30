@@ -21,7 +21,7 @@ public class CensusAnalyserTest {
         try {
             int count = readObj.readDataCount(filePathRead, fileName);
             Assertions.assertEquals(29, count);
-        } catch (CensusAnalyserException e) {
+        } catch (StateSensorAnalyserException e) {
             e.printStackTrace();
         }
     }
@@ -38,7 +38,7 @@ public class CensusAnalyserTest {
         try {
             int count = readObj.readDataCount(filePathRead, fileName);
             Assertions.assertEquals(29, count);
-        } catch (CensusAnalyserException e) {
+        } catch (StateSensorAnalyserException e) {
             e.printStackTrace();
         }
     }
@@ -54,7 +54,7 @@ public class CensusAnalyserTest {
         try {
             int count = readObj.readDataCount(filePathRead, fileName);
             Assertions.assertEquals(29, count);
-        }  catch (CensusAnalyserException e) {
+        }  catch (StateSensorAnalyserException e) {
             e.printStackTrace();
         }
     }
@@ -96,7 +96,7 @@ public class CensusAnalyserTest {
                 Assertions.assertTrue(flag);
             else
                 Assertions.assertFalse(flag);
-        } catch (IOException | CensusAnalyserException e) {
+        } catch (IOException | StateSensorAnalyserException e) {
             e.printStackTrace();
         }
     }

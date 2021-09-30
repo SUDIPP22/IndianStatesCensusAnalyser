@@ -12,7 +12,7 @@ import java.util.List;
  * @since 2021-09-29
  */
 public class CensusAnalyser {
-    public static void main(String[] args) throws IOException, CensusAnalyserException {
+    public static void main(String[] args) throws IOException, StateSensorAnalyserException {
         System.out.println("Welcome To The Program");
         String filePathRead = ".src/main/resources/IndianStateCensusData.csv";
         String fileName = "IndianStateCensusData";
